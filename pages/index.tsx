@@ -1,39 +1,74 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { title } from "process";
 import BannerImage from "../public/BannerImage.png";
-
-const Banner = () => {
-  return (
-    <div className="bg-purple-400 w-full flex lg:max-w-[80vw]  justify-start items-center md:rounded-xl shadow-xl">
-      <Image className="-ml-24 -mr-24" src={BannerImage} alt="Hero Image" />
-      <h1 className="text-[3.5vh] md:text-[5vh] font-bold uppercase text-center text-white">
-        Welcome to My Commerce!
-      </h1>
-    </div>
-  );
-};
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <Head>
         <title>MyCommerce</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav className="h-24 border-b w-full flex justify-start items-center p-4">
-        My Commerce
+      <nav className="h-16 bg-purple-400 w-full flex justify-start items-center border-b border-purple-700 md:border-0 shadow-lg sticky">
+        <span className="uppercase text-2xl font-bold px-4 text-white">
+          My Commerce
+        </span>
       </nav>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-start  text-center md:p-4">
+      <main className="bg-white flex w-full flex-1 flex-col items-center justify-start  text-center md:p-4 space-y-12">
         <Banner />
+        <section className="w-full flex flex-col justify-center items-center space-y-12 p-4 ">
+          <h2 className="uppercase text-4xl w-full text-start font-bold">
+            Featured Items:
+          </h2>
+          <div className="flex justify-center items-center space-x-6">
+            <Card product="Xbox One" price="$499.99" image="" />
+            <Card product="PlayStation 5" price="$495.99" image="" />
+          </div>
+        </section>
       </main>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        Footer
-      </footer>
+      <Footer />
     </div>
   );
 };
 
 export default Home;
+
+const Banner = () => {
+  return (
+    <section className="bg-purple-400 w-full flex lg:max-w-[80vw]  justify-start items-center md:rounded-xl shadow-xl">
+      <Image className="-ml-24 -mr-24" src={BannerImage} alt="Banner Image" />
+      <h1 className="text-[3.5vh] md:text-[5vh] font-bold uppercase text-center text-white">
+        Welcome to My Commerce!
+      </h1>
+    </section>
+  );
+};
+
+const Card = ({
+  product,
+  price,
+  image,
+}: {
+  product: string;
+  price: string;
+  image: string;
+}) => {
+  return (
+    <div className="w-64 h-96 bg-gradient-to-b from-purple-300 to-purple-50 rounded-xl shadow-2xl">
+      <h3>{product}</h3>
+      <span>{price}</span>
+    </div>
+  );
+};
+
+const Footer = () => {
+  return (
+    <footer className="flex h-12 w-full items-center justify-center bg-purple-400">
+      <span className="text-white font-bold">©2023</span>
+    </footer>
+  );
+};
