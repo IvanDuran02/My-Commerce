@@ -11,13 +11,13 @@ const Home: NextPage = () => {
         <title>MyCommerce</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav className="h-16 bg-purple-400 w-full flex justify-start items-center border-b border-purple-700 md:border-0 shadow-lg sticky">
+      <nav className="sticky top-0 h-16 bg-purple-400 w-full flex justify-start items-center border-b border-purple-700 md:border-0 shadow-lg">
         <span className="uppercase text-2xl font-bold px-4 text-white">
           My Commerce
         </span>
       </nav>
 
-      <main className="bg-white flex w-full flex-1 flex-col items-center justify-start  text-center md:p-4 space-y-12">
+      <main className="bg-white flex w-full flex-1 flex-col items-center justify-start  text-center space-y-12">
         <Banner />
         <section className="w-full flex flex-col justify-center items-center space-y-12 p-4 ">
           <h2 className="uppercase text-4xl w-full text-start font-bold">
@@ -39,11 +39,13 @@ export default Home;
 
 const Banner = () => {
   return (
-    <section className="bg-purple-400 w-full flex lg:max-w-[80vw]  justify-start items-center md:rounded-xl shadow-xl">
-      <Image className="-ml-24 -mr-24" src={BannerImage} alt="Banner Image" />
-      <h1 className="text-[3.5vh] md:text-[5vh] font-bold uppercase text-center text-white">
-        Welcome to My Commerce!
-      </h1>
+    <section className="bg-purple-400 w-full flex justify-between items-center shadow-xl">
+      <div className="flex justify-center items-center">
+        <Image className="-ml-36 -mr-40" src={BannerImage} alt="Banner Image" />
+        <h1 className="text-[3.5vh] md:text-[4vh] font-bold uppercase text-center text-white p-4 w-[40vh] ">
+          Welcome to My Commerce!
+        </h1>
+      </div>
     </section>
   );
 };
